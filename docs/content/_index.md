@@ -12,10 +12,36 @@ draft: false
 
 **Whatalang** makes reactive programming simple and intuitive. With a single global state that automatically triggers actions when conditions are met, you can build complex, responsive applications with clean, readable code.
 
-<div class="hero-buttons">
-<a href="/getting-started/" class="btn btn-primary btn-lg">🚀 Get Started</a>
-<a href="/examples/" class="btn btn-secondary btn-lg">📖 View Examples</a>
-</div>
+{{< button href="/getting-started/" class="cta-button" >}}
+🚀 Get Started
+{{< /button >}}
+
+{{< button href="/examples/" class="secondary-button" >}}
+📖 View Examples
+{{< /button >}}
+
+---
+
+## ⚡ **NEW: Install Whatalang Globally!**
+
+**Whatalang is now available on PyPI!** Install it globally and run Whatalang programs from anywhere:
+
+```bash
+pip install whatalang
+```
+
+**Use it immediately:**
+```bash
+whatalang --version
+whatalang program.wa
+whatalang --help
+```
+
+**Try it online:**
+```bash
+# Run Whatalang source code directly
+whatalang -e "state { message: 'Hello, World!' } print message"
+```
 
 ---
 
@@ -75,7 +101,7 @@ print status
 
 ## 🚀 Key Features
 
-<div class="features-grid">
+{{< features-grid >}}
 
 ### **Global State Management**
 - Single source of truth for all application data
@@ -96,8 +122,9 @@ print status
 - Clean, readable syntax
 - Comprehensive error messages
 - Built-in debugging and logging
+- **Global CLI installation**
 
-</div>
+{{< /features-grid >}}
 
 ---
 
@@ -105,7 +132,7 @@ print status
 
 Experience Whatalang in your browser with our interactive playground:
 
-<div class="code-playground">
+{{< code-playground >}}
 ```whatalang
 state {
   counter: 0,
@@ -119,7 +146,7 @@ react to counter when > 10 {
 set counter = 15
 print status
 ```
-</div>
+{{< /code-playground >}}
 
 ---
 
@@ -141,9 +168,19 @@ print status
 3. **Explore examples**: Check out our [examples gallery](/examples/)
 4. **Join the community**: [GitHub](https://github.com/umairsiddique/whatalang)
 
-<div class="cta-section">
-<a href="/getting-started/" class="btn btn-primary btn-lg">Start Building with Whatalang</a>
-</div>
+{{< button href="/getting-started/" class="cta-button" >}}
+Start Building with Whatalang
+{{< /button >}}
+
+---
+
+## 🌟 **Whatalang is Now on PyPI!**
+
+- **📦 Package**: [PyPI](https://pypi.org/project/whatalang/)
+- **🌐 Website**: [whatalang.org](https://whatalang.org) (coming soon)
+- **📚 Documentation**: [Getting Started](/getting-started/)
+- **💻 CLI**: Global `whatalang` command
+- **🚀 Features**: Reactive programming with single global state
 
 ---
 

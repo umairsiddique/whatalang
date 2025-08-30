@@ -18,7 +18,7 @@ Welcome to Whatalang! This guide will get you up and running with the reactive p
 - Python 3.8 or higher
 - pip (Python package installer)
 
-### **Install Whatalang**
+### **Install Whatalang Globally**
 ```bash
 pip install whatalang
 ```
@@ -29,6 +29,14 @@ whatalang --version
 ```
 
 You should see the Whatalang version number displayed.
+
+### **Global CLI Access**
+After installation, the `whatalang` command is available globally from anywhere on your system:
+```bash
+# From any directory
+whatalang --help
+whatalang --version
+```
 
 ---
 
@@ -211,6 +219,11 @@ Shows detailed information about:
 - Execution steps
 - Reactive triggers
 
+### **Execute Source Code Directly**
+```bash
+whatalang -e "state { message: 'Hello!' } print message"
+```
+
 ### **File Extensions**
 Whatalang supports multiple file extensions:
 - `program.wa` - Standard extension
@@ -272,6 +285,15 @@ Now that you understand the basics:
 - **Examples**: Browse working code in our [examples](/examples/)
 - **GitHub**: Report issues or ask questions on [GitHub](https://github.com/umairsiddique/whatalang)
 - **Community**: Join discussions and share your experiences
+
+---
+
+## 🌟 **Whatalang is Now on PyPI!**
+
+- **📦 Install globally**: `pip install whatalang`
+- **💻 Use anywhere**: `whatalang program.wa`
+- **🚀 Run directly**: `whatalang -e "your code here"`
+- **📚 Full docs**: [whatalang.org](https://whatalang.org) (coming soon)
 
 ---
 
