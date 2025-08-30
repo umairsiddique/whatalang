@@ -283,6 +283,9 @@ class Parser:
                 if self._match(TokenType.DOT):
                     if self._check(TokenType.IDENTIFIER):
                         parts.append(self._advance().value)
+                    elif self._check(TokenType.NUMBER):
+                        # Allow numeric parts for array indices like "preferences.0"
+                        parts.append(self._advance().value)
                     else:
                         break
                 elif self._match(TokenType.LEFT_BRACKET):
