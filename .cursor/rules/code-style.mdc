@@ -1,0 +1,45 @@
+# Whatalang Code Style Rules
+
+## Python Standards
+- Use Python 3.8+ features and type hints
+- Follow PEP 8 for formatting and naming conventions
+- Use snake_case for functions, variables, and modules
+- Use PascalCase for classes
+- Use UPPER_CASE for constants
+
+## Documentation
+- All public functions and classes must have docstrings
+- Use Google-style docstrings with type annotations
+- Include examples in docstrings for complex functions
+- Document exceptions and edge cases
+
+## Error Handling
+- Use custom exceptions for Whatalang-specific errors
+- Provide clear, actionable error messages
+- Include context in error messages (line numbers, tokens, etc.)
+- Graceful degradation when possible
+
+## Testing Conventions
+- Use pytest for all testing
+- Test names should be descriptive: `test_function_name_scenario`
+- Use fixtures for common test data
+- Mock external dependencies
+- Aim for 90%+ test coverage
+
+## Import Organization
+- Standard library imports first
+- Third-party imports second
+- Local imports last
+- Use absolute imports within the package
+- Group imports by type with blank lines between groups
+
+## Code Organization
+- One class per file for major components
+- Keep functions focused and single-purpose
+- Maximum function length: 50 lines
+- Maximum class length: 200 lines
+- Use composition over inheritance
+description:
+globs:
+alwaysApply: true
+---

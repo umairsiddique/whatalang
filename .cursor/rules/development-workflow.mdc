@@ -1,0 +1,48 @@
+# Whatalang Development Workflow Rules
+
+## Git Workflow
+- Commit frequently with descriptive messages
+- Use conventional commit format: `feat:`, `fix:`, `test:`, `refactor:`
+- Each commit should represent one logical change
+- Keep commits atomic and focused
+
+## Testing Strategy
+- Write tests before or alongside new features
+- Run full test suite before committing
+- Use pytest for all testing
+- Aim for comprehensive coverage
+
+## Code Review Process
+- Self-review before committing
+- Check for code style compliance
+- Verify tests pass
+- Ensure documentation is updated
+
+## Package Management
+- Use `pyproject.toml` for modern Python packaging
+- Keep dependencies minimal and up-to-date
+- Use virtual environments for development
+- Document any special setup requirements
+
+## Documentation Updates
+- Update README.md for user-facing changes
+- Update docstrings for API changes
+- Keep examples current and working
+- Document breaking changes clearly
+
+## Performance Considerations
+- Profile code for bottlenecks
+- Optimize critical paths
+- Monitor memory usage
+- Test with realistic data sizes
+
+## Release Process
+- Version bump in `pyproject.toml`
+- Update CHANGELOG.md
+- Tag releases in Git
+- Test installation from PyPI
+- Update documentation for new features
+description:
+globs:
+alwaysApply: true
+---

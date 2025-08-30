@@ -1,0 +1,36 @@
+# Whatalang Core Architecture Rules
+
+## Language Philosophy
+- **Single Global State**: Everything revolves around one mutable state object
+- **Reactive by Design**: State changes automatically trigger actions
+- **Functional Operations**: Use map, filter, reduce, concat for state manipulation
+- **Path-Based Access**: Nested state access via dot notation and brackets
+
+## Core Components
+- **Lexer**: Tokenizes source code into meaningful units
+- **Parser**: Builds AST from tokens
+- **State Manager**: Manages global state with path-based operations
+- **Reactive Engine**: Monitors state changes and triggers actions
+- **Interpreter**: Executes AST and coordinates all components
+
+## Design Principles
+- Keep components loosely coupled but well-defined interfaces
+- State changes should be atomic and traceable
+- Reactive triggers should support chaining (A triggers B triggers C)
+- Error handling should be graceful and informative
+- Performance should scale with state complexity
+
+## File Extensions
+- Support both `.wa` (standard) and `.what` (descriptive)
+- Auto-detect extension when none provided
+- CLI should handle all three cases seamlessly
+
+## Testing Strategy
+- Test each component in isolation
+- Integration tests for complete workflows
+- Reactive system tests for complex scenarios
+- CLI tests for user experience
+description:
+globs:
+alwaysApply: true
+---

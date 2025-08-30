@@ -1,0 +1,48 @@
+# Whatalang CLI and User Experience Rules
+
+## Command Line Interface
+- Primary command: `whatalang <file>`
+- Support both `.wa` and `.what` file extensions
+- Auto-detect extension when none provided
+- Provide clear error messages for missing files
+
+## Verbose Mode
+- `-v` or `--verbose` flag for detailed output
+- Show lexer tokens, parser AST, and execution steps
+- Display final state when verbose
+- Helpful for debugging and learning
+
+## Error Handling
+- File not found: Clear message with suggestions
+- Syntax errors: Line number and context
+- Runtime errors: State context and recovery suggestions
+- Graceful exit codes (0 for success, 1 for errors)
+
+## Output Format
+- Clean, readable output with emojis for visual appeal
+- Reactive triggers clearly marked with 🔄
+- State changes shown with clear formatting
+- Final state summary when appropriate
+
+## File Extension Support
+- `.wa`: Standard, professional extension
+- `.what`: Descriptive, branded extension
+- No extension: Smart auto-detection
+- Consistent behavior across all three cases
+
+## Help and Documentation
+- `-h` or `--help` for usage information
+- Show supported file extensions
+- Provide example usage
+- Link to documentation when available
+
+## Testing CLI
+- Test all file extension scenarios
+- Test verbose mode output
+- Test error handling and exit codes
+- Test help and usage information
+- Verify consistent behavior across platforms
+description:
+globs:
+alwaysApply: true
+---

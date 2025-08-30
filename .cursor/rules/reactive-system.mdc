@@ -1,0 +1,48 @@
+# Whatalang Reactive System Rules
+
+## Reactive Statement Structure
+- Must start with `react to <target>`
+- Support multiple `when` conditions with different operators
+- Include `default` actions for fallback behavior
+- Actions can be any valid Whatalang statement
+
+## Condition Evaluation
+- Support operators: `==`, `!=`, `>`, `<`, `>=`, `<=`
+- Conditions should be evaluated lazily (only when target changes)
+- Handle type coercion gracefully (string vs number comparisons)
+- Support complex expressions in condition values
+
+## Path Matching
+- Exact path matches trigger reactions
+- Parent path changes trigger child path reactions
+- Support nested object and array access
+- Handle dynamic array indices properly
+
+## Action Execution
+- Actions execute immediately when conditions are met
+- Support chained reactions (A triggers B triggers C)
+- Prevent infinite loops with reasonable depth limits
+- Execute actions in the order they appear
+
+## Performance Considerations
+- Cache reactive statement evaluations
+- Batch multiple state changes when possible
+- Lazy evaluation of conditions
+- Efficient path matching algorithms
+
+## Error Handling in Reactions
+- Failed reactions should not crash the system
+- Log reaction failures for debugging
+- Continue processing other reactive statements
+- Provide fallback behavior when possible
+
+## Testing Reactive Behavior
+- Test single condition triggers
+- Test multiple condition scenarios
+- Test chained reactions
+- Test error conditions and edge cases
+- Verify performance under load
+description:
+globs:
+alwaysApply: true
+---
