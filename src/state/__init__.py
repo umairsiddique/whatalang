@@ -5,8 +5,8 @@ Whatalang State Management System - Executes ASTs and manages global state
 from typing import Any, Dict, List, Union, Optional
 from ..parser import (
     Program, Statement, StateDeclaration, KeyValuePair, 
-    SetStatement, PrintStatement, Value, Literal, Object, 
-    Array, Identifier, Path
+    SetStatement, PrintStatement, ReactStatement, ReactiveCondition,
+    Value, Literal, Object, Array, Identifier, Path
 )
 
 
@@ -15,7 +15,8 @@ class StateManager:
     
     def __init__(self):
         self.state = {}
-        self._observers = {}  # For future reactive system
+        self._reactive_statements = []  # Store reactive statements
+        self._reactive_cache = {}  # Cache for reactive evaluations
     
     def get(self, path: List[str]) -> Any:
         """Get a value from state using a path"""
@@ -118,9 +119,23 @@ class StateManager:
     def clear(self) -> None:
         """Clear the entire state"""
         self.state = {}
+        self._reactive_cache = {}
+    
+    def register_reactive(self, react_statement: ReactStatement) -> None:
+        """Register a reactive statement for monitoring"""
+        self._reactive_statements.append(react_statement)
+    
+    def get_reactive_statements(self) -> List[ReactStatement]:
+        """Get all registered reactive statements"""
+        return self._reactive_statements.copy()
+    
+    def clear_reactive_statements(self) -> None:
+        """Clear all reactive statements"""
+        self._reactive_statements = []
+        self._reactive_cache = {}
     
     def __repr__(self) -> str:
-        return f"StateManager(state={self.state})"
+        return f"StateManager(state={self.state}, reactive={len(self._reactive_statements)})"
 
 
 class Interpreter:
