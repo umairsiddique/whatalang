@@ -111,3 +111,8 @@ gc = false
   changefreq = "weekly"
   priority = 0.5
   filename = "sitemap.xml"
+
+# Custom domain configuration
+[params.customDomain]
+  enabled = true
+  domain = "whatalang.org"
