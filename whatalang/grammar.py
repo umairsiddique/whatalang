@@ -1,6 +1,11 @@
 """
 Whatalang Grammar Definition
 Complete syntax specification for the reactive programming language
+
+File Extensions Supported:
+- .wa    - Standard Whatalang extension (recommended)
+- .what  - Descriptive Whatalang extension
+- (none) - No extension (also supported)
 """
 
 # ============================================================================

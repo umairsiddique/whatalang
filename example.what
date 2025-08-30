@@ -1,0 +1,12 @@
+state {
+  counter: 0,
+  status: "normal"
+}
+
+react to counter when > 5 {
+  set status = "high"
+}
+
+set counter = 10
+print "Counter is now:" counter
+print "Status is now:" status

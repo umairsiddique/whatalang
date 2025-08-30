@@ -164,7 +164,7 @@ def main():
     
     parser = argparse.ArgumentParser(
         description="Whatalang - A reactive programming language",
-        epilog="Example: whatalang program.wa"
+        epilog="Examples: whatalang program.wa, whatalang program.what, whatalang program"
     )
     
     parser.add_argument(
@@ -207,7 +207,13 @@ def main():
         if os.path.exists(args.input):
             return run_whatalang_file(args.input, args.verbose)
         else:
-            # Treat as source code
+            # Try common Whatalang extensions
+            for ext in ['', '.wa', '.what']:
+                file_path = args.input + ext
+                if os.path.exists(file_path):
+                    return run_whatalang_file(file_path, args.verbose)
+            
+            # If no file found, treat as source code
             return run_whatalang_source(args.input, args.verbose)
     
     return 0
