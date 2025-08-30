@@ -28,6 +28,42 @@ class Statement(ASTNode):
     pass
 
 
+class ReactStatement(Statement):
+    """Represents a reactive statement"""
+    
+    def __init__(self, target: 'Expression', conditions: List['ReactiveCondition'], actions: List['Statement']):
+        self.target = target
+        self.conditions = conditions
+        self.actions = actions
+    
+    def __repr__(self):
+        return f"ReactStatement({self.target}, {len(self.conditions)} conditions, {len(self.actions)} actions)"
+
+
+class ReactiveCondition(ASTNode):
+    """Represents a reactive condition"""
+    
+    def __init__(self, operator: str, value: 'Expression', actions: List['Statement']):
+        self.operator = operator
+        self.value = value
+        self.actions = actions
+    
+    def __repr__(self):
+        return f"ReactiveCondition({self.operator} {self.value}, {len(self.actions)} actions)"
+
+
+class ReactiveAction(ASTNode):
+    """Represents a reactive action"""
+    
+    def __init__(self, action_type: str, target: 'Expression', value: 'Expression'):
+        self.action_type = action_type
+        self.target = target
+        self.value = value
+    
+    def __repr__(self):
+        return f"ReactiveAction({self.action_type} {self.target} = {self.value})"
+
+
 class StateDeclaration(Statement):
     """Represents a state declaration"""
     
@@ -157,6 +193,8 @@ class Parser:
             return self._parse_set_statement()
         elif self._match(TokenType.PRINT):
             return self._parse_print_statement()
+        elif self._match(TokenType.REACT):
+            return self._parse_react_statement()
         else:
             # Skip unknown tokens for now
             self._advance()
@@ -271,6 +309,84 @@ class Parser:
         """Parse a print statement"""
         expression = self._parse_expression()
         return PrintStatement(expression)
+    
+    def _parse_react_statement(self) -> ReactStatement:
+        """Parse a reactive statement"""
+        self._consume(TokenType.TO, "Expected 'to' after 'react'")
+        target = self._parse_path()  # Use path parsing instead of expression
+        
+        conditions = []
+        actions = []
+        
+        # Parse conditions and actions
+        while not self._is_at_end():
+            if self._match(TokenType.WHEN):
+                condition = self._parse_reactive_condition()
+                conditions.append(condition)
+            elif self._match(TokenType.DEFAULT):
+                # Parse default actions
+                actions = self._parse_reactive_actions()
+                break
+            elif self._check(TokenType.LEFT_BRACE):
+                # If we see a brace, we're done parsing conditions
+                break
+            else:
+                break
+        
+        return ReactStatement(target, conditions, actions)
+    
+    def _parse_reactive_condition(self) -> ReactiveCondition:
+        """Parse a reactive condition"""
+        # Parse the condition (e.g., "> 10", "== 'active'")
+        operator = ""
+        value = None
+        
+        if self._check(TokenType.GREATER):
+            operator = ">"
+            self._advance()
+        elif self._check(TokenType.LESS):
+            operator = "<"
+            self._advance()
+        elif self._check(TokenType.EQUAL_EQUAL):
+            operator = "=="
+            self._advance()
+        elif self._check(TokenType.NOT_EQUAL):
+            operator = "!="
+            self._advance()
+        elif self._check(TokenType.GREATER_EQUAL):
+            operator = ">="
+            self._advance()
+        elif self._check(TokenType.LESS_EQUAL):
+            operator = "<="
+            self._advance()
+        else:
+            # Default to equals
+            operator = "=="
+        
+        value = self._parse_expression()
+        
+        # Parse actions for this condition
+        actions = self._parse_reactive_actions()
+        
+        return ReactiveCondition(operator, value, actions)
+    
+    def _parse_reactive_actions(self) -> List[Statement]:
+        """Parse reactive actions"""
+        actions = []
+        
+        # Expect opening brace
+        self._consume(TokenType.LEFT_BRACE, "Expected '{' for reactive actions")
+        
+        while not self._check(TokenType.RIGHT_BRACE) and not self._is_at_end():
+            if self._match(TokenType.SET):
+                actions.append(self._parse_set_statement())
+            elif self._match(TokenType.PRINT):
+                actions.append(self._parse_print_statement())
+            else:
+                self._advance()  # Skip unknown actions
+        
+        self._consume(TokenType.RIGHT_BRACE, "Expected '}' after reactive actions")
+        return actions
     
     def _parse_path(self) -> Path:
         """Parse a path"""
