@@ -1,0 +1,29 @@
+{{- define "title" -}}
+  {{- title (.Params.Title | default ((T .Section) | default .Section | dict "Some" | T "allSome")) -}}
+  {{- if .Site.Params.withSiteTitle }} {{ .Site.Params.titleDelimiter }} {{ .Site.Title }}{{- end -}}
+{{- end -}}
+
+{{- define "content" -}}
+  <div class="page">
+    <div class="header">
+      {{- /* Title */ -}}
+      <h1 class="single-title animate__animated animate__pulse animate__faster">
+        {{- $titleIcon := "fa-solid fa-feather" -}}
+        {{- with .Params.titleIcon -}}
+          {{- $titleIcon = . -}}
+        {{- end -}}
+        {{- dict "Class" (add $titleIcon " fa-fw me-1") | partial "plugin/icon.html" -}}
+        {{- title (.Params.Title | default ((T .Section) | default .Section | dict "Some" | T "allSome")) -}}
+      </h1>
+      {{- /* Subtitle */ -}}
+      {{- with .Params.subtitle -}}
+        <p class="single-subtitle">{{ . }}</p>
+      {{- end -}}
+    </div>
+
+    {{- /* Content */ -}}
+    <div class="content">
+      {{- .Content -}}
+    </div>
+  </div>
+{{- end -}}
