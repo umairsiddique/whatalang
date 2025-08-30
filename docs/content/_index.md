@@ -12,13 +12,10 @@ draft: false
 
 **Whatalang** makes reactive programming simple and intuitive. With a single global state that automatically triggers actions when conditions are met, you can build complex, responsive applications with clean, readable code.
 
-{{< button href="/getting-started/" class="cta-button" >}}
-🚀 Get Started
-{{< /button >}}
-
-{{< button href="/examples/" class="secondary-button" >}}
-📖 View Examples
-{{< /button >}}
+<div class="hero-buttons">
+<a href="/getting-started/" class="btn btn-primary btn-lg">🚀 Get Started</a>
+<a href="/examples/" class="btn btn-secondary btn-lg">📖 View Examples</a>
+</div>
 
 ---
 
@@ -101,7 +98,7 @@ print status
 
 ## 🚀 Key Features
 
-{{< features-grid >}}
+<div class="features-grid">
 
 ### **Global State Management**
 - Single source of truth for all application data
@@ -124,7 +121,7 @@ print status
 - Built-in debugging and logging
 - **Global CLI installation**
 
-{{< /features-grid >}}
+</div>
 
 ---
 
@@ -132,7 +129,7 @@ print status
 
 Experience Whatalang in your browser with our interactive playground:
 
-{{< code-playground >}}
+<div class="code-playground">
 ```whatalang
 state {
   counter: 0,
@@ -146,7 +143,7 @@ react to counter when > 10 {
 set counter = 15
 print status
 ```
-{{< /code-playground >}}
+</div>
 
 ---
 
@@ -168,9 +165,9 @@ print status
 3. **Explore examples**: Check out our [examples gallery](/examples/)
 4. **Join the community**: [GitHub](https://github.com/umairsiddique/whatalang)
 
-{{< button href="/getting-started/" class="cta-button" >}}
-Start Building with Whatalang
-{{< /button >}}
+<div class="cta-section">
+<a href="/getting-started/" class="btn btn-primary btn-lg">Start Building with Whatalang</a>
+</div>
 
 ---
 
