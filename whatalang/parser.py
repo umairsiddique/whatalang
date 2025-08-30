@@ -3,7 +3,7 @@ Whatalang Parser - Converts tokens into Abstract Syntax Tree (AST)
 """
 
 from typing import List, Optional, Union
-from ..lexer import Token, TokenType
+from .lexer import Token, TokenType
 
 
 class ASTNode:

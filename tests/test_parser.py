@@ -1,6 +1,6 @@
 import pytest
-from src.lexer import Lexer, TokenType
-from src.parser import Parser, Program, StateDeclaration, KeyValuePair, SetStatement, PrintStatement, Literal, Object, Array, Identifier, Path
+from whatalang.lexer import Lexer, TokenType
+from whatalang.parser import Parser, Program, StateDeclaration, KeyValuePair, SetStatement, PrintStatement, Literal, Object, Array, Identifier, Path
 
 
 class TestParser:

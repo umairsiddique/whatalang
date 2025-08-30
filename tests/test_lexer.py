@@ -1,5 +1,5 @@
 import pytest
-from src.lexer import Lexer, TokenType, Token
+from whatalang.lexer import Lexer, TokenType, Token
 
 
 class TestLexer:

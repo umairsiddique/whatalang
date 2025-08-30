@@ -1,7 +1,7 @@
 import pytest
-from src.lexer import Lexer
-from src.parser import Parser
-from src.state import StateManager, Interpreter
+from whatalang.lexer import Lexer
+from whatalang.parser import Parser
+from whatalang.state import StateManager, Interpreter
 
 
 class TestStateManager:
@@ -88,7 +88,7 @@ class TestInterpreter:
         interpreter = Interpreter()
         
         # Create empty program
-        from src.parser import Program
+        from whatalang.parser import Program
         program = Program([])
         
         output = interpreter.execute(program)

@@ -1,6 +1,6 @@
 import pytest
-from src.lexer import Lexer
-from src.parser import Parser, ReactStatement, ReactiveCondition
+from whatalang.lexer import Lexer
+from whatalang.parser import Parser, ReactStatement, ReactiveCondition
 
 
 class TestReactiveParser:
@@ -24,7 +24,7 @@ class TestReactiveParser:
         statement = program.statements[0]
         
         assert isinstance(statement, ReactStatement)
-        from src.parser import Path
+        from whatalang.parser import Path
         assert isinstance(statement.target, Path)
         assert statement.target.parts == ["counter"]
         assert len(statement.conditions) == 1
@@ -59,7 +59,7 @@ class TestReactiveParser:
         statement = program.statements[0]
         
         assert isinstance(statement, ReactStatement)
-        from src.parser import Path
+        from whatalang.parser import Path
         assert isinstance(statement.target, Path)
         assert statement.target.parts == ["status"]
         assert len(statement.conditions) == 2
@@ -127,7 +127,7 @@ class TestReactiveParser:
         statement = program.statements[0]
         
         # Check target path
-        from src.parser import Path
+        from whatalang.parser import Path
         assert isinstance(statement.target, Path)
         assert statement.target.parts == ["user", "age"]
         
@@ -158,7 +158,7 @@ class TestReactiveParser:
         assert len(program.statements) == 4
         
         # Check statement types
-        from src.parser import StateDeclaration, ReactStatement, SetStatement, PrintStatement
+        from whatalang.parser import StateDeclaration, ReactStatement, SetStatement, PrintStatement
         assert isinstance(program.statements[0], StateDeclaration)
         assert isinstance(program.statements[1], ReactStatement)
         assert isinstance(program.statements[2], SetStatement)
@@ -181,6 +181,6 @@ class TestReactiveParser:
         
         # Should not crash, but may produce incomplete AST
         program = parser.parse()
-        from src.parser import Program
+        from whatalang.parser import Program
         assert isinstance(program, Program)
         assert len(program.statements) > 0

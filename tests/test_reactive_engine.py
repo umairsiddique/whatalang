@@ -1,8 +1,8 @@
 import pytest
-from src.lexer import Lexer
-from src.parser import Parser, ReactStatement, ReactiveCondition, Path, Literal, SetStatement, PrintStatement, Identifier
-from src.reactive import ReactiveEngine, ReactiveInterpreter
-from src.state import StateManager
+from whatalang.lexer import Lexer
+from whatalang.parser import Parser, ReactStatement, ReactiveCondition, Path, Literal, SetStatement, PrintStatement, Identifier
+from whatalang.reactive import ReactiveEngine, ReactiveInterpreter
+from whatalang.state import StateManager
 
 
 class TestReactiveEngine:

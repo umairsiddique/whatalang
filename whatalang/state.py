@@ -3,7 +3,7 @@ Whatalang State Management System - Executes ASTs and manages global state
 """
 
 from typing import Any, Dict, List, Union, Optional
-from ..parser import (
+from .parser import (
     Program, Statement, StateDeclaration, KeyValuePair, 
     SetStatement, PrintStatement, ReactStatement, ReactiveCondition,
     Value, Literal, Object, Array, Identifier, Path
