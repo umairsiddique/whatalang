@@ -1,0 +1,3 @@
+[submodule "docs/themes/FixIt"]
+	path = docs/themes/FixIt
+	url = https://github.com/hugo-fixit/FixIt.git

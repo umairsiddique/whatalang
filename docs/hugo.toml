@@ -1,0 +1,113 @@
+baseURL = 'https://umairsiddique.github.io/whatalang/'
+languageCode = 'en-us'
+title = 'Whatalang'
+theme = 'FixIt'
+
+# Enable features
+enableGitInfo = true
+enableEmoji = true
+enableRobotsTXT = true
+enableSearch = true
+enableCodeCopy = true
+
+# Build settings
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+# Performance
+minify = true
+gc = true
+
+# Menu
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "features"
+    name = "Features"
+    url = "/features/"
+    weight = 2
+  [[menu.main]]
+    identifier = "getting-started"
+    name = "Getting Started"
+    url = "/getting-started/"
+    weight = 3
+  [[menu.main]]
+    identifier = "examples"
+    name = "Examples"
+    url = "/examples/"
+    weight = 4
+  [[menu.main]]
+    identifier = "docs"
+    name = "Documentation"
+    url = "/docs/"
+    weight = 5
+
+# Theme configuration
+[params]
+  # Site
+  description = "The reactive programming language with a single global state"
+  keywords = ["programming language", "reactive", "functional", "state management", "whatalang"]
+  
+  # Author as a map (required by FixIt theme)
+  [params.author]
+    name = "Whatalang Team"
+    email = "team@whatalang.org"
+    link = "https://github.com/umairsiddique/whatalang"
+  
+  # Appearance
+  defaultTheme = "dark"
+  enableThemeToggle = true
+  enableScrollToTop = true
+  
+  # Code highlighting
+  enableCodeCopy = true
+  codeCopyTitle = "Copy"
+  codeCopyTitleCopied = "Copied!"
+  
+  # Search
+  enableSearch = true
+  searchResultLength = 10
+  
+  # Social
+  [params.social]
+    GitHub = "umairsiddique/whatalang"
+    Twitter = "whatalang"
+    
+  # Footer
+  [params.footer]
+    enable = true
+    custom = true
+    customContent = '<p>Built with ❤️ using <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/hugo-fixit/FixIt">FixIt</a></p>'
+
+# Markup
+[markup]
+  [markup.highlight]
+    style = "dracula"
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    noHl = false
+    hlLines = ""
+    lineAnchors = ""
+    anchors = ""
+    codeFences = true
+    guessSyntax = false
+    tabWidth = 4
+    wrapLongLines = false
+
+# Taxonomies
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+# Sitemap
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
